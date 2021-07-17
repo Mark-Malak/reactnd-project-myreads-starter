@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
+import Book from './Book.js'
 import {Route} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 class BooksApp extends React.Component {
@@ -53,6 +54,9 @@ class BooksApp extends React.Component {
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
+                    <li>
+                      <Book author = 'sdmeme'  title = 'sdsdsd' img ='url("http://books.google.com/books/content?id=yDtCuFHXbAYC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72RRiTR6U5OUg3IY_LpHTL2NztVWAuZYNFE8dUuC0VlYabeyegLzpAnDPeWxE6RHi0C2ehrR9Gv20LH2dtjpbcUcs8YnH5VCCAH0Y2ICaKOTvrZTCObQbsfp4UbDqQyGISCZfGN&source=gbs_api")' />
+                    </li>
                       <li>
                         <div className="book">
                           <div className="book-top">
