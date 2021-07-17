@@ -1,18 +1,14 @@
 import React from 'react';
 
 class Book extends React.Component {
-    state = {
-        shelf : 'wantToRead' 
-    }
     
     render() {
-       const {title , author , img} = this.props ; 
-       const{shelf} = this.state ; 
+       const {title , authors , shelf , img } = this.props ; 
         return (
 
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `${img}` }}></div>
+                    <div className="book-cover" style={ { width: 128, height: 193, backgroundImage: `url(${img})` }}></div>
                     <div className="book-shelf-changer">
                         <select defaultValue = {shelf}>
                             <option value="move" disabled>Move to...</option>
@@ -24,7 +20,7 @@ class Book extends React.Component {
                     </div>
                 </div>
                 <div className="book-title">{title}</div>
-                <div className="book-authors">{author}</div>
+                <div className="book-authors">{authors.toString()}</div>
             </div>
 
 
