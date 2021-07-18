@@ -47,6 +47,4 @@ export const search = (query) =>
       throw new Error('Something went wrong');
     }
     })
-    .then(data => data.books).catch((error) => {
-      console.log(error)
-    });
+    .then(data => data.books)
