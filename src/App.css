@@ -30,6 +30,8 @@ body, .app {
 }
 
 .bookshelf {
+  background-size:100% 90%;
+  background-image: url('./icons/sh.jpg');
   padding: 0 10px 20px;
 }
 
@@ -140,11 +142,13 @@ button:active {
 
 .book {
   width: 140px;
+  
 }
 
 .book-title,
 .book-authors {
   font-size: 0.8em;
+  
 }
 
 .book-title {
@@ -152,7 +156,7 @@ button:active {
 }
 
 .book-authors {
-  color: #999;
+  color: rgb(75, 75, 75);
 }
 
 .book-top {
@@ -187,8 +191,9 @@ button:active {
 /* book cover */
 
 .book-cover {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 5px 8px rgba(0,0,0,0.16), 0 5px 8px rgba(0,0,0,0.23);
   background: #eee;
+  
 }
 
 .book-cover-title {

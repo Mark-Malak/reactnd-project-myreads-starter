@@ -19,19 +19,40 @@ class BooksApp extends React.Component {
 
   updateQuery(query) {
     this.setState(() => ({
-      query: query.trim()
+      query: query
     }))
-    BooksAPI.search(this.state.query).then(
-      (books) => {
-        console.log("found theeeeeeeeeeeeeeeeeese " + books);
-        this.setState(
-          {
-            searchResult: books
-          }
-        )
+    BooksAPI.search(query).then(
+      (booksReturned) => {
+        
+        // if (!Array.isArray(booksReturned)) {
+        //   //reference : https://dev.to/arikaturika/use-this-trick-to-map-over-single-objects-in-javascript-38nb
+        //   console.log("this single book title is " + booksReturned.title);
+        //   booksReturned = [booksReturned];
+        // }
+     
+        if (booksReturned.error) {
+          this.setState(
+            {
+              searchResult: []
+            }
+          )
+        } else {
+          
+          this.setState(
+            {
+              searchResult: booksReturned
+            }
+          )
+        }
+
 
       }).catch((error) => {
         console.log(error)
+        this.setState(
+          {
+            searchResult: []
+          }
+        )
       });
 
     // const showingBooks = query.trim() === '' 
@@ -42,20 +63,18 @@ class BooksApp extends React.Component {
     // ))
   }
 
-    updateShelves(book, value) {
-     BooksAPI.update(book, value).then( ()=>{
-       return BooksAPI.getAll()
-      }
+  updateShelves(book, value) {
+    BooksAPI.update(book, value).then(() => {
+      return BooksAPI.getAll()
+    }
     ).then(
       (books) => {
-        console.log("i retrieved all the boook_________________________________")
-        console.log(books);
         this.setState(
           {
             books: books
           }
         )
-        console.log("updated book with name : " + book.title + " to shelf : " + value);
+     
       })
 
   }
@@ -64,7 +83,7 @@ class BooksApp extends React.Component {
   componentDidMount() {
     BooksAPI.getAll().then(
       (books) => {
-        console.log(books);
+        
         this.setState(
           {
             books: books,
@@ -76,10 +95,10 @@ class BooksApp extends React.Component {
 
       })
   }
-  bookExist(book , books ){
-    for(var i = 0 ; i < books.length;  i++){
-      if(book.id === books[i].id){
-        return books[i].shelf ;
+  bookExist(book, books) {
+    for (var i = 0; i < books.length; i++) {
+      if (book.id === books[i].id) {
+        return books[i].shelf;
       }
     }
     return '';
@@ -93,10 +112,6 @@ class BooksApp extends React.Component {
     const currentlyReading = books.filter(book => book.shelf === 'currentlyReading');
     const wantToRead = books.filter(book => book.shelf === 'wantToRead');
     const read = books.filter(book => book.shelf === 'read');
-    console.log(books) ; 
-    console.log(currentlyReading);
-    console.log(wantToRead);
-    console.log(read);
 
 
     return (
@@ -122,7 +137,7 @@ class BooksApp extends React.Component {
               <ol className="books-grid">
                 {searchResult && searchResult.length >= 1 && (searchResult.map((book) => (
                   <li key={book.id}>
-                    <Book bookObj={book} refresh={this.updateShelves.bind(this)} title={book.title} authors={book.authors} shelf={this.bookExist(book , books) } img={book.imageLinks ? (book.imageLinks).thumbnail : ''}/>
+                    <Book bookObj={book} refresh={this.updateShelves.bind(this)} title={book.title} authors={book.authors} shelf={this.bookExist(book, books)} img={book.imageLinks ? (book.imageLinks).thumbnail : ''} />
                   </li>
                 )
                 )

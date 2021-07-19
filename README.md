@@ -1,13 +1,8 @@
-# MyReads Project
+# MyReads Project 
+## project description 
+this is a project made for udacity advanced front-end development nano degree , it is a myreads project which keeps track of your (currently reading , want to read and read )  , you can see three shelves on the main page representing these 3 categories , and by clicking on each book dropdown you can change the shelf where the book exist or remove it from the shelves by selecting none , and you can use a search option to search for new books and add them to your 3 shelves 
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
-
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
-
-## TL;DR
-
-To get started developing right away:
-
+for installing and launching the app after cloning the repo on your machine :
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
@@ -23,6 +18,8 @@ To get started developing right away:
 └── src
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
     ├── App.js # This is the root of your app. Contains static HTML right now.
+    ├── Book.js # This is the JS file containing the Book component .
+    ├── BookShelf.js # This is the JS file containing the Book shelf component .
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.

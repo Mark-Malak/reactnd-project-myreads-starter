@@ -5,7 +5,7 @@ class Book extends React.Component {
 
     handleChange = (event) => {
         this.setState({shelf:event.target.value})
-        console.log("changing "+this.props.bookObj.title + "to my current shelf selected is "+ event.target.value) ;
+       // console.log("changing "+this.props.bookObj.title + "to my current shelf selected is "+ event.target.value) ;
         this.props.refresh(this.props.bookObj , event.target.value)
     }
 
